@@ -26,6 +26,10 @@ app.configure('development', function(){
 
 app.get('/', routes.index);
 
+app.get('/users/:user', routes.user);
+
+app.get("/community", routes.community);
+
 http.createServer(app).listen(3000);
 
 console.log("Express server listening on port 3000");
