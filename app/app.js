@@ -18,11 +18,39 @@ app.configure(function(){
   app.use(express.bodyParser());
   app.use(express.methodOverride());
   app.use(app.router);
+  app.use(express.cookieParser());
+  app.use(express.session({secret:'secret'}{store:new RedisStore}));
 });
 
 app.configure('development', function(){
   app.use(express.errorHandler());
 });
+
+//Sessions
+
+var users = require('./users');
+
+function authRoute(req, res, next) {
+	if(req.session.authenticated) {
+		next();
+	}else {
+		res.redirect('/login');
+	}
+}
+
+app.get('/login', function(req,res) {
+	res.render('login');
+});
+
+app.get('/:user', function(req, res) {
+	if(req.session.user.login === req.params.user) {
+		//show dashboard
+	} else {
+		//show profile
+	}	
+});
+
+//Routes
 
 app.get('/', routes.index);
 
