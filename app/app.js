@@ -44,9 +44,10 @@ app.get('/login', function(req,res) {
 
 app.get('/:user', function(req, res) {
 	if(req.session.user.login === req.params.user) {
-		//show dashboard
+		//show user's pile
+		routes.user;
 	} else {
-		//show profile
+		res.redirect('/login');
 	}	
 });
 
@@ -54,9 +55,9 @@ app.get('/:user', function(req, res) {
 
 app.get('/', routes.index);
 
-app.get('/users/:user', routes.user);
+//app.get('/users/:user', routes.user);
 
-app.get("/community", routes.community);
+app.get("/piles/:pile", routes.pile);
 
 http.createServer(app).listen(3000);
 
