@@ -16,9 +16,13 @@ exports.user = function(req, res) {
 	});
 };
 
-exports.community = function(req, res) {
-	frags.getCommunityFrags(function(error, result) {
-		var data = {'frags': result};
-		res.render('community', data);
-	});
+exports.pile = function(req, res) {
+	if(req.params.pile === 'community') {
+		frags.getCommunityFrags(function(error, result) {
+			var data = {'frags': result};
+			res.render('community', data);
+		});
+	} else {
+		//other piles
+	}
 };
