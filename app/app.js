@@ -30,7 +30,7 @@ app.configure('development', function(){
 
 //Sessions
 
-//stupid commment
+
 function authRoute(req, res, next) {
 	if(req.session.authenticated) {
 		next();
