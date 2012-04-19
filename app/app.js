@@ -5,7 +5,9 @@
 
 var express = require('express')
   , routes = require('./routes')
-  , http = require('http');
+  , http = require('http')
+  , redis = require('redis')
+  , RedisStore = require('connect-redis')(express);
 
 var app = express();
 
@@ -19,7 +21,7 @@ app.configure(function(){
   app.use(express.methodOverride());
   app.use(app.router);
   app.use(express.cookieParser());
-  app.use(express.session({secret:'secret'}{store:new RedisStore}));
+  app.use(express.session({secret:'secret', store:new RedisStore}));
 });
 
 app.configure('development', function(){
@@ -28,7 +30,6 @@ app.configure('development', function(){
 
 //Sessions
 
-var users = require('./users');
 
 function authRoute(req, res, next) {
 	if(req.session.authenticated) {

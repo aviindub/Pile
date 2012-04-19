@@ -35,7 +35,7 @@ function recGetFrags (array, nextIndex, results, callback) {
 }
 
 
-module.exports.getUserFrags = function(username, callback) {
+exports.getUserFrags = function(username, callback) {
 	//get list of fragIDs for given username
 	//get frags for those IDs
 	client.smembers(username, function(error, fragIDs) {
@@ -43,7 +43,7 @@ module.exports.getUserFrags = function(username, callback) {
 	});
 };
 
-module.exports.getCommunityFrags = function(callback) {
+exports.getCommunityFrags = function(callback) {
 	//get all usernames
 	//get a list of fragIDs that is the union of all fragIDs for all usernames
 	//get frags for those IDs
