@@ -1,104 +1,104 @@
 body {
-margin: 0;
-padding: 0;
-background-color: #555;
-}
+	margin: 0; 
+	padding: 0;
+	background-color: #555;
+	}
 
 body {
-font-size: 10px;
-line-height: 14px;
-font-family: helvetica, sans-serif;
-text-decoration: none;
-color: #000;
-}
+	font-size: 10px;
+	line-height: 14px;
+	font-family: helvetica, sans-serif;
+	text-decoration: none;
+	color: #000;
+	}
 
 /* ------------------------------------------------------------------ */
 
 a:link {
-font: 19px verdana, sans-serif;
-text-decoration: none;
-color: #000;
-}
-
+	font:				19px verdana, sans-serif;
+	text-decoration:	none; 
+	color:				#000;
+	}
+	
 a:visited {
-font: 19px verdana, sans-serif;
-text-decoration: none;
-color: #000;
-}
+	font:				19px verdana, sans-serif; 
+	text-decoration:	none; 
+	color:				#000;
+	}
 
 a:hover {
-font: 19px verdana, sans-serif;
-text-decoration: underline;
-color: #d82027;
-}
-
+	font:				19px verdana, sans-serif;
+	text-decoration:	underline;
+	color:				#d82027;
+	}
+	
 a:active {
-font: 19px verdana, sans-serif;
-text-decoration: none;
-color: #d82027;
-}
-
+	font:				19px verdana, sans-serif;
+	text-decoration:	none; 
+	color:				#d82027;
+	}
+	
 #container {
-width: auto;
+	width: auto;
 }
-
-
+	
+	
 /* smoothdivscroll.com */
 
 #header {
-position: absolute;
-border: none;
-width: 100%;
-height: 15%;
-background-color: #99ccff;
-z-index: 2000;
-border-bottom: solid 5px #6699cc;
+	position: absolute;
+	border: none;
+	width: 100%;
+	height: 15%;
+	background-color: #99ccff;
+	z-index: 2000;
+	border-bottom: solid 5px #6699cc; 
 }
 
 #header p {
-position: relative;
-padding: 5px 20px;
-top: -50px;
-font-size: 90px;
+	position: relative;
+	padding: 5px 20px;
+	top: -50px;
+	font-size: 90px;
 }
 
 #pileContainer div.scrollableArea * {
-position: relative;
-padding: 0;
-margin: 0;
-width: 100%;
-height: 70%;
-background-color: #999999;
+	position: relative;
+	padding: 0;
+	margin: 0;
+	width: 100%;
+	height: 70%;
+	background-color: #999999;
 }
 
 .pileLink {
-font-size: 16px;
-font-weight: bold;
-font-color: #ddd;
-text-decoration: none;
-padding: 0px 5px;
+	font-size: 16px;
+	font-weight: bold;
+	font-color: #ddd;
+	text-decoration: none;
+	padding: 0px 5px;
 }
 
 
 #logo {
-position: absolute;
-top: -70px;
-left: 40px;
-z-index: 5000;
+	position: absolute;
+	top: -70px;
+	left: 40px;
+	z-index: 5000;
 }
 
 
 .btn:link {
-color: #fff;
-font-style: italic;
-font-weight: 600;
-font-size: 13px;
+	color: #fff;
+	font-style: italic;
+	font-weight: 600;
+	font-size: 13px;
 }
 
 .btn:hover {
-background-position:0 -15px;
-color:#333;
-text-decoration:none;
+	background-position:0 -15px;
+	color:#333;
+	text-decoration:none;
 }
 
 
@@ -113,16 +113,16 @@ text-decoration:none;
 }
 
 .dynDiv_moveDiv img {
-height: 125px;
-padding: 5px 5px;
+	height: 125px;
+	padding: 5px 5px;
 }
 
 .dynDiv_moveDiv p {
-display: inline;
-float: left;
-position: relative;
-top: 0px;
-left: 5px;
+	display: inline;
+	float: left;
+	position: relative;
+	top: 0px;
+	left: 5px;
 }
 
 .dynDiv_resizeDiv_tl,.dynDiv_resizeDiv_tr,.dynDiv_resizeDiv_bl,.dynDiv_resizeDiv_br {
@@ -186,48 +186,50 @@ left: 5px;
 /*need to make class for divs so the class can be applied to any div created*/
 
 #testdiv_1 {
-width: 220px;
-height: 205px;
-border: solid 1px #ccc;
-color: #ddd;
-background-color: #111;
+	width: 220px;
+	height: 205px;
+	border: solid 1px #ccc;
+	color: #ddd;
+	background-color: #111;
 }
 
 
 #testdiv_2 {
-width: 220px;
-height: 200px;
-border: solid 1px #ccc;
-color: #ddd;
-background-color: #333;
-padding: 5px;
+	width: 220px;
+	height: 200px;
+	border: solid 1px #ccc;
+	color: #ddd;
+	background-color: #333;
+	padding: 5px;
 }
 
 #testdiv_3 {
-width: 210px;
-height: 300px;
-border: solid 1px #ccc;
-color: #ddd;
-background-color: #777;
-padding: 2px;
+	width: 210px;
+	height: 300px;
+	border: solid 1px #ccc;
+	color: #ddd;
+	background-color: #777;
+	padding: 2px;
 }
 
 #testdiv_3 img {
-height: 200px;
+	height: 200px;
 }
 
 .footer {
-display: inline;
-float: left;
-position: relative;
-top: -15px;
-padding-bottom: 5px;
+	display: inline;
+	float: left;
+	position: relative;
+	top: -15px;
+	padding-bottom: 5px;
 }
 
 .footerPoster {
-font-style: italic;
+	font-style: italic;
 }
 
 .footerDate {
-font-style: none;
+	font-style: none;
 }
+
+
