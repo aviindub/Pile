@@ -1,0 +1,99 @@
+<!DOCTYPE html>
+<html>
+
+
+	<head>
+		<meta charset="utf-8">
+		<title>PILE</title>
+ 				<link rel="stylesheet" href="../public/stylesheets/style.css">
+				<script type="text/javascript" src="../public/javascripts/byrei-dyndiv_1.0rc1.js"></script>
+				<script src="https://ajax.googleapis.com/ajax/libs/jquery/1.6.4/jquery.min.js"></script>
+				<script src="http://twitter.github.com/bootstrap/1.4.0/bootstrap-modal.js"></script>
+
+
+		</head>
+		
+	<body>
+
+
+    <div id="modal-from-dom" class="modal hide fade">
+	      <div class="modal-header">
+	        <a href="#" class="close">&times;</a>
+	        <h3 class="name_header">Enter your login credentials.</h3>
+	      </div>
+
+	      <div class="modal-body">
+	      		<form id="login" action="/login" method="post">
+					<label>USERNAME&nbsp;</label>
+					<span class="formField"><input id="name" value="username" name="username" type="text" onblur="if (this.value == '') {this.value = 'username';}"  onfocus="if (this.value == 'username') {this.value = '';}" ></span><br /><br />
+					<label>PASSWORD&nbsp;</label>
+					<span class="formField"><input id="password" value="password" name="password" type="password" onblur="if (this.value == '') {this.value = 'password';}"  onfocus="if (this.value == 'password') {this.value = '';}" ></span><br />
+					<span class="btn primary submitButton"><input type="submit" value="Log in"/></span>
+				</form>
+	<!--           <form id="frag" action="/frag/new">
+	  			<label>Frag Content: </label>
+	  			<textarea rows="10" cols="30" name="fragContent" type="html">
+	  			</textarea>
+	  			<input type="submit" value="Create Frag"/> -->
+	      </div>
+    </div>
+
+        <div id="modal-unavailable" class="modal hide fade">
+	      <div class="modal-header">
+	        <a href="#" class="close">&times;</a>
+	        <h2>We're sorry, this feature is not yet available. <br /><br /> Please check back at a later time.</h2>
+	      </div>
+    	</div>
+
+<!---MAIN DISPLAY-->
+	
+	<div id="container">
+		<div id="header">
+ 			<div id="logo"><img src="../public/images/pileLogo2.png"></div>
+ 
+		
+          <p data-controls-modal="modal-from-dom"
+	      data-backdrop="true"
+	      data-keyboard="true">
+	      <a href="#">LOGIN.</a></p>
+			
+
+			<div id="spacer">&nbsp;</div><div id="spacer">&nbsp;</div>
+			<p data-controls-modal="modal-unavailable"
+						data-backdrop="true"
+						data-keyboard="true">
+						<a href="#">SIGN UP.</a></p>
+		</div>
+
+
+		<div id="pileContainer">
+			<div class="fragBox" id="welcomeTextBox">
+				<p>PILE. is a user-generated idea sharing platform that lets you post notes, links, quotes, blurbs or other text-based content in "frags".  <br /><br />
+				Arrange and reorder your own frags, then push your PILE onto the group PILE.</p>
+			</div>
+			<div class="fragBox" id="signupBox">
+				<p>Sign up for a free account to check out the current group PILE and start making your own frags!</p>
+			</div>
+
+			<span id="signupbtn">
+			<button data-controls-modal="modal-unavailable"
+					data-backdrop="true"
+					data-keyboard="true"
+					class="btn secondary info">SIGN UP NOW</button>
+			</span>
+				
+				
+		</div>
+
+		<div id="footer">
+		</div>
+	</div>
+	
+	
+	</body>
+	
+</html>
+
+
+
+
