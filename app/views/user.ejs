@@ -1,0 +1,18 @@
+<% for (var i = 0; i < frags.length, i++) { %>
+	<%var fragDivID = user +'Frag'+ i%>
+	<div id="<%= fragDivID %>" class="dynDiv_moveDiv">
+		<div class="dynDiv_resizeDiv_tl"></div>
+		<div class="dynDiv_resizeDiv_tr"></div>
+		<div class="dynDiv_resizeDiv_bl"></div>
+		<div class="dynDiv_resizeDiv_br"></div>
+		<p><%= frags[i].content %></p>
+		<div class="footer">
+			<p><span class="footerPoster">Posted by <%= user %></span><span class="footerDate"> at <%= frags[i].timestamp %></span></p>
+		</div>
+	</div>
+	<script>
+		$("#<%= fragDivID %>").css("left", <%= frags[i].posLeft %>);
+		$("#<%= fragDivID %>").css("top", <%= frags[i].posTop %>);
+	</script>
+<% } %>
+
