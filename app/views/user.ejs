@@ -11,8 +11,42 @@
 		</div>
 	</div>
 	<script>
-		$("#<%= fragDivID %>").css("left", <%= frags[i].posLeft %>);
-		$("#<%= fragDivID %>").css("top", <%= frags[i].posTop %>);
+		$("#<%= fragDivID %>").css("left", <%= frags[i].posLeft +"px" %>);
+		$("#<%= fragDivID %>").css("top", <%= frags[i].posTop +"px" %>);
 	</script>
 <% } %>
 
+
+<script>
+
+	/*
+	* this is probably the wrong place for this script!!
+	* turns current positions of frags in to arrays of coordinates
+	* combines positions and username in to JSON object
+	* does AJAX post to send JSON object
+	* alerts when AJAX post is successful
+	*/
+	
+	function savePositions() {
+		var positionsTop = [], positionsLeft = [];
+		<% for (var i = 0; i < frags.length, i++) { %>
+			<%var fragDivID = user +'Frag'+ i%>
+			positionsTop[<%= i %>] = $("#<%= fragDivID %>").css("top").replace(/[^-\d\.]/g, '');
+			positionsLeft[<%= i %>] = $("#<%= fragDivID %>").css("left").replace(/[^-\d\.]/g, '');
+		<% } %>
+		var positions = new Object();
+		positions.user = <%= user %>;
+		positions.top = positionsTop;
+		positions.left = positionsLeft;
+		var positionsString = JSON.stringify(positions);
+		//ajax call goes here
+		$.ajax({
+			url: "/piles/saveUserPile",
+			type: "POST",
+			data: positionsString
+		}).done(function() {
+			alert("Pile successfully saved");
+		});
+	}
+</script>
+<button id="saveButton" onclick="savePositions()" type="button">Save Pile</button>
