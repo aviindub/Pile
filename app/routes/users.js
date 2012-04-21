@@ -20,21 +20,33 @@ module.exports.authenticate = function(login, password, callback) {
 */
 
 module.exports.authenticate = function(login, password, callback) {
-	client.IsInSet(users, login, function(error, exists) {
-		if(exists) {
-			client.get(login, function(error, userInfo) {
+	client.sismember('users', login, function(error, exists) {
+		if(exists === 1) {
+			client.hgetall(login, function(error, userInfo) {
+				
+				//reformat userInfo from array to hash
+				var hashify = {};
+				for (var i = 0; i < userInfo.length ; i += 2) {
+					hashify[userInfo[i]] = userInfo[i+1];
+				}
+				userInfo = hashify;
+				
 				if (error) {
 					console.log(error);
 					callback(error, null);
-				}
-				if (password === userInfo.password) {
-					req.session.authenticated = true;
-					req.session.user = login;
-					callback(null, true);
 				} else {
-					callback(null, false);
+					if (password === userInfo.password) {
+						req.session.authenticated = true;
+						req.session.user = login;
+						callback(null, true);
+					} else {
+						callback(null, false);
+					}
 				}
 			});
+		} else {
+			//user doesnt exist
+			callback(null, false);
 		}
 	});
 };
