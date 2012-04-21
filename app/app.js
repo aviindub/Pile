@@ -60,6 +60,8 @@ app.get('/', routes.index);
 
 app.get("/piles/:pile", routes.pile);
 
+app.post("/piles/saveUserPile", routes.saveUserPile);
+
 http.createServer(app).listen(3000);
 
 console.log("Express server listening on port 3000");
