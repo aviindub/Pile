@@ -23,3 +23,7 @@ exports.pile = function(req, res) {
 		//or just an error page
 	}
 };
+
+exports.saveUserPile = function(req, res) {
+	//handle AJAX post with updated frag positions
+}
