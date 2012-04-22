@@ -28,23 +28,29 @@
 	*/
 	
 	function savePositions() {
+		
+		//get positions of all frags
 		var positionsTop = [], positionsLeft = [];
 		<% for (var i = 0; i < frags.length, i++) { %>
 			<%var fragDivID = user +'Frag'+ i%>
 			positionsTop[<%= i %>] = $("#<%= fragDivID %>").css("top").replace(/[^-\d\.]/g, '');
 			positionsLeft[<%= i %>] = $("#<%= fragDivID %>").css("left").replace(/[^-\d\.]/g, '');
 		<% } %>
+		
+		//turn positions in to a JSON object and stringify
 		var positions = new Object();
 		positions.user = <%= user %>;
 		positions.top = positionsTop;
 		positions.left = positionsLeft;
-		var positionsString = JSON.stringify(positions);
-		//ajax call goes here
+		var positionsString = "data=" + JSON.stringify(positions);
+		
+		//ajax POST to transmit positions
 		$.ajax({
 			url: "/piles/saveUserPile",
 			type: "POST",
 			data: positionsString
-		}).done(function() {
+		}).done(function() { 
+			//called when POST is successfully completed
 			alert("Pile successfully saved");
 		});
 	}
