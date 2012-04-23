@@ -20,7 +20,7 @@ a:link {
 	text-decoration:	none; 
 	color:				#ffcd05;
 	}
-	
+
 a:visited {
 	font:				19px helvetica, sans-serif; 
 	text-decoration:	none; 
@@ -32,17 +32,17 @@ a:hover {
 	text-decoration:	none;
 	color:				#FF9906;
 	}
-	
+
 a:active {
 	font:				19px helvetica, sans-serif;
 	text-decoration:	none; 
 	color:				#FF9906;
 	}
-	
+
 #container {
 	width: auto;
 }
-	
+
 
 #header {
 	position: absolute;
@@ -57,10 +57,10 @@ a:active {
 
 #header p {
 	position: relative;
-	bottom: 10px;
+	top: 25px;
 	left: 30%;
-	margin-left: 200px;
-	font-size: 45px;
+	margin-left: 100px;
+	font-size: 24px;
 	font-family: helvetica, sans-serif;
 	color: #ffcd05;
 	float: left;
@@ -68,7 +68,7 @@ a:active {
 }
 
 #header a {
-	font-size: 30px;
+	font-size: 24px;
 }
 
 #spacer {
@@ -76,15 +76,22 @@ a:active {
 	float: left;
 }
 
+#spacer2 {
+	width: 10px;
+	float: left;
+}
+
+
+
 #individaulexplaination p {
 	width: 370px;
 	height:70px;
 	position:fixed;
-	left:0%;
-	padding-top:25px;
+	left:20px;
+	padding-top:15px;
 	padding-left:20px;
-	top:10%;
-	font-size: 45px;
+	top:18%;
+	font-size: 28px;
 	background-color: #333333;
 	z-index: 2000;
 	border: solid 5px #111; 
@@ -94,14 +101,11 @@ a:active {
 
 #individualexplainationbottom p {
 	width: 370px;
-	height:100%;
-	position:fixed;
-	left:0%;
+	left:20px;
 	padding-top:10px;
 	padding-left:20px;
-	top:20%;
 	line-height:120%;
-	font-size: 45px;
+	font-size: 24px;
 	background-color: #333333;
 	z-index: 2000;
 	border: solid 5px #111; 
@@ -200,6 +204,28 @@ a:active {
 	z-index: 12;
 }
 
+#leftDescription {
+	top: 30%;
+	left: 40px;
+	width: 230px;
+	transform: rotate(2deg);
+	-ms-transform: rotate(2deg); /* IE 9 */
+	-webkit-transform: rotate(2deg); /* Safari and Chrome */
+	-o-transform: rotate(2deg); /* Opera */
+	-moz-transform: rotate(2deg); /* Firefox */
+	background-color: #ccc;
+	opacity: .8;
+	z-index: 10;
+	padding: 10px;
+}
+
+.descriptHeader {
+	font-weight: bold;
+	color: #ffcd05;
+	font-size: 24px;
+	margin-top: 5px;
+}
+
 #signupbtn {
 	position: absolute;
 	top: 82%;
@@ -214,8 +240,6 @@ a:active {
 	text-decoration: none;
 	padding: 0px 5px;
 }
-
-
 
 
 .btn:link {
@@ -495,6 +519,33 @@ div.scrollableArea
 	border: 2px solid #ffcd05;
 }
 
+#modal-grouppile {
+	z-index: 20000;
+	width: 300px;
+	height: 250px;
+	box-shadow: 0px 0px 20px #ffb900;
+	font-size: 12px;
+	border: 2px solid #ffcd05;
+}
+
+#modal-userpile {
+	z-index: 20000;
+	width: 300px;
+	height: 250px;
+	box-shadow: 0px 0px 20px #ffb900;
+	font-size: 12px;
+	border: 2px solid #ffcd05;
+}
+
+#modal-createfrag {
+	z-index: 20000;
+	width: 350px;
+	height: 375px;
+	box-shadow: 0px 0px 20px #ffb900;
+	font-size: 12px;
+	border: 2px solid #ffcd05;
+}
+
 .modal {
   position: fixed;
   top: 65%;
@@ -566,7 +617,7 @@ div.scrollableArea
 	linear;-ms-transition:opacity 0.15s 
 	linear;-o-transition:opacity 0.15s linear;transition:opacity 0.15s linear;opacity:0;}
 
-	.fade.in{opacity:1;}
+.fade.in{opacity:1;}
 
 /* END MODAL CSS */
 
@@ -582,6 +633,11 @@ div.scrollableArea
 
 }
 
+.aligncenter {
+	position: absolute;
+	margin-left: 25%;
+}
+
 /*BUTTON STYLINGS */
 
 /**/
@@ -594,7 +650,7 @@ select,
 textarea {
   font-size: 100%;
   font-weight: bold;
-  margin: 0;
+  margin: 10;
   vertical-align: baseline;
   *vertical-align: middle;
 }
@@ -604,15 +660,26 @@ button, input {
 }
 button::-moz-focus-inner, input::-moz-focus-inner {
   border: 0;
-  padding: 0;
+  padding: 10;
 }
 button,
 input[type="button"],
 input[type="reset"],
 input[type="submit"] {
-  cursor: pointer;
-  -webkit-appearance: button;
+  background-color: #ffcd05;
+  background-repeat: repeat-x;
+  background-image: -khtml-gradient(linear, left top, left bottom, from(#E07E1B), to(#ffcd05));
+  background-image: -moz-linear-gradient(top, #E07E1B, #ffcd05);
+  background-image: -ms-linear-gradient(top, #E07E1B, #ffcd05);
+  background-image: -webkit-gradient(linear, left top, left bottom, color-stop(0%, #E07E1B), color-stop(100%, #339bb9));
+  background-image: -webkit-linear-gradient(top, #E07E1B, #ffcd05);
+  background-image: -o-linear-gradient(top, #E07E1B, #ffcd05);
+  background-image: linear-gradient(top, #E07E1B, #ffcd05);
+  text-shadow: 0 -1px 0 rgba(0, 0, 0, 0.25);
+  border-color: #ffcd05 #ffcd05 #22697d;
+  border-color: rgba(0, 0, 0, 0.1) rgba(0, 0, 0, 0.1) rgba(0, 0, 0, 0.25);
 }
+
 input[type="search"] {
   -webkit-appearance: textfield;
   -webkit-box-sizing: content-box;
