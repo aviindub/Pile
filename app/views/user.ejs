@@ -39,7 +39,7 @@
 		
 		//turn positions in to a JSON object and stringify
 		var positions = new Object();
-		positions.user = <%= user %>;
+		positions.user = <%= username %>;
 		positions.top = positionsTop;
 		positions.left = positionsLeft;
 		var positionsString = "data=" + JSON.stringify(positions);
