@@ -1,6 +1,8 @@
 /*
 * pile related routes
 */
+var frags = require('./FragDatabaseModule');
+
 
 exports.user = function(req, res) {
 	//route for individual user piles
