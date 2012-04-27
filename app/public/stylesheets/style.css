@@ -57,10 +57,9 @@ a:active {
 
 #header p {
 	position: relative;
-	top: 25px;
-	left: 30%;
+	top: 20%;
+	right: -30%;
 	margin-left: 100px;
-	font-size: 24px;
 	font-family: helvetica, sans-serif;
 	color: #ffcd05;
 	float: left;
@@ -68,8 +67,9 @@ a:active {
 }
 
 #header a {
-	font-size: 24px;
+	font-size: 26px;
 }
+
 
 #spacer {
 	width: 30px;
@@ -82,38 +82,6 @@ a:active {
 }
 
 
-
-#individaulexplaination p {
-	width: 370px;
-	height:70px;
-	position:fixed;
-	left:20px;
-	padding-top:15px;
-	padding-left:20px;
-	top:18%;
-	font-size: 28px;
-	background-color: #333333;
-	z-index: 2000;
-	border: solid 5px #111; 
-	font-family: helvetica, sans-serif;
-	color: #ffcd05;
-}
-
-#individualexplainationbottom p {
-	width: 370px;
-	left:20px;
-	padding-top:10px;
-	padding-left:20px;
-	line-height:120%;
-	font-size: 24px;
-	background-color: #333333;
-	z-index: 2000;
-	border: solid 5px #111; 
-	font-family: helvetica, sans-serif;
-	color: #ffcd05;
-}
-
-
 #logo {
 	position: absolute;
 	top: 0px;
@@ -123,6 +91,14 @@ a:active {
 
 #logo img {
 	height: 130px;
+}
+
+.leftSideBorder {
+	position: absolute;
+	width: 23%;
+	top: 18%;
+	border-right: 2px solid #ffcd05;
+	height: 75%;
 }
 
 #pileContainer {
@@ -141,14 +117,13 @@ a:active {
 #pileContainerGroup {
 	position: absolute;
 	padding: 0;
-	margin: 0;
-	width: 100%;
-	height: 75%;
+	top: 15%;
+	left: 24%;
+	width: 75%;
+	height: 85%;
 }
 
-#pileContainerGroup div.scrollableArea {
-	width: auto;
-}
+
 
 
 .fragBox {
@@ -156,7 +131,7 @@ a:active {
 	top: 20%;
 	padding: 2px;
 	left: 10%;
-	width: 240px;
+	width: 15%;
 	transform: rotate(0deg);
 	-ms-transform: rotate(0deg); /* IE 9 */
 	-webkit-transform: rotate(0deg); /* Safari and Chrome */
@@ -173,7 +148,7 @@ a:active {
 }
 
 #welcomeTextBox {
-	top: 10%;
+	top: 70px;
 	left: 65px;
 	transform: rotate(4deg);
 	-ms-transform: rotate(4deg); /* IE 9 */
@@ -189,7 +164,8 @@ a:active {
 }
 
 #signupBox {
-	top: 55%;
+	position: relative;
+	top: 320px;
 	left: 50px;
 	width: 270px;
 	transform: rotate(-5deg);
@@ -204,10 +180,10 @@ a:active {
 	z-index: 12;
 }
 
-#leftDescription {
-	top: 30%;
+.leftDescription {
+	top: 10%;
 	left: 40px;
-	width: 230px;
+	width: 70%;
 	transform: rotate(2deg);
 	-ms-transform: rotate(2deg); /* IE 9 */
 	-webkit-transform: rotate(2deg); /* Safari and Chrome */
@@ -219,16 +195,27 @@ a:active {
 	padding: 10px;
 }
 
+
+
 .descriptHeader {
 	font-weight: bold;
-	color: #ffcd05;
+	color: #333;
 	font-size: 24px;
 	margin-top: 5px;
+	line-height: 26px;
+	padding: 2px 5px 15px 5px;
+	border-bottom: 2px solid #333;
 }
 
 #signupbtn {
 	position: absolute;
-	top: 82%;
+	top: 470px;
+	left: 115px;
+}
+
+#saveButton {
+	position: absolute;
+	top: 400px;
 	left: 115px;
 
 }
@@ -261,30 +248,14 @@ a:active {
 .dynDiv_moveDiv {
  cursor: move;
  position: absolute;
- top: 20%;
- left: 40%;
  overflow: hidden;
 }
 
-.dynDiv_moveDiv img {
-	height: 125px;
-	padding: 5px 5px;
-}
-
-.dynDiv_moveDiv p {
-	display: inline;
-	float: left;
-	position: relative;
-	top: 0px;
-	left: 5px;
-}
-
 .dynDiv_resizeDiv_tl,.dynDiv_resizeDiv_tr,.dynDiv_resizeDiv_bl,.dynDiv_resizeDiv_br {
- width: 6px;
- height: 6px;
- background: #ddd;
- border: none;
- filter: alpha(opacity:50);
+ width: 10px;
+ height: 10px;
+ background: #faa;
+ border: 1px solid #000;
  position: absolute;
 }
 
@@ -350,32 +321,35 @@ a:active {
 }
 
 #testdiv_1 {
-	width: 220px;
-	height: 205px;
-	top: 150px;
-	left: 100px;
-	border: solid 1px #ccc;
 	color: #ddd;
-	background-color: #111;
+	 width: 200px;
+	 height: 200px;
+	 background: #111;
+	 border: 1px solid #ccc;
+	 padding: 10px;
+	 top: 200px;
+	 left: 250px;
+	 position: absolute;
 }
 
 
 #testdiv_2 {
-	width: 220px;
-	height: 200px;
-	top: 200px;
-	left: 250px;
-	border: solid 1px #ccc;
 	color: #ddd;
-	background-color: #333;
-	padding: 5px;
+	 width: 200px;
+	 height: 200px;
+	 background: #111;
+	 border: 1px solid #ccc;
+	 padding: 10px;
+	 top: 300px;
+	 left: 400px;
+	 position: absolute;
 }
 
 #testdiv_3 {
 	top: 300px;
-	left: 1400px;
+	left: 500px;
 	width: 210px;
-	height: 300px;
+	height: 200px;
 	border: solid 1px #ccc;
 	color: #ddd;
 	background-color: #777;
@@ -395,85 +369,6 @@ a:active {
 }
 
 
-
-/* You can alter this CSS in order to give Smooth Div Scroll your own look'n'feel */
-
-/* Invisible left hotspot */
-div.scrollingHotSpotLeft
-{
-	/* The hotspots have a minimum width of 100 pixels and if there is room the will grow
-    and occupy 15% of the scrollable area (30% combined). Adjust it to your own taste. */
-	min-width: 75px;
-	width: 10%;
-	height: 100%;
-	/* There is a big background image and it's used to solve some problems I experienced
-    in Internet Explorer 6. */
-	background-image: url('../images/big_transparent.gif');
-	background-repeat: repeat;
-	background-position: center center;
-	position: absolute;
-	z-index: 6000;
-	left: 0;
-	/*  The first url is for Firefox and other browsers, the second is for Internet Explorer */
-/*	cursor: url(../images/cursors/cursor_arrow_left.png), url(../images/cursors/cursor_arrow_left.cur),w-resize;
-*/}
-
-/* Visible left hotspot */
-div.scrollingHotSpotLeftVisible
-{
-	background-image: url('../images/arrow_left.png');				
-	background-color: #fff;
-	background-repeat: no-repeat;
-	opacity: 0.35; /* Standard CSS3 opacity setting */
-	-moz-opacity: 0.35; /* Opacity for really old versions of Mozilla Firefox (0.9 or older) */
-	filter: alpha(opacity = 35); /* Opacity for Internet Explorer. */
-	zoom: 1; /* Trigger "hasLayout" in Internet Explorer 6 or older versions */
-}
-
-/* Invisible right hotspot */
-div.scrollingHotSpotRight
-{
-	min-width: 75px;
-	width: 10%;
-	height: 100%;
-	background-image: url('../images/big-transparent.gif');
-	background-repeat: repeat;
-	background-position: center center;
-	position: absolute;
-	z-index: 6000;
-	right: 0;
-/*	cursor: url(../images/cursors/cursor_arrow_right.png), url(../images/cursors/cursor_arrow_right.cur),e-resize;
-*/}
-
-/* Visible right hotspot */
-div.scrollingHotSpotRightVisible
-{
-	background-image: url('../images/arrow_right.png');
-	background-color: #fff;
-	background-repeat: no-repeat;
-	opacity: 0.9;
-	filter: alpha(opacity = 35);
-	-moz-opacity: 0.35;
-	zoom: 1;
-}
-
-/* The scroll wrapper is always the same width and height as the containing element (div).
-   Overflow is hidden because you don't want to show all of the scrollable area.
-*/
-div.scrollWrapper
-{
-	position: relative;
-	overflow: hidden;
-	width: 100%;
-	height: 100%;
-}
-
-div.scrollableArea
-{
-	position: relative;
-	width: auto;
-	height: 100%;
-}
 
 
 /* MODAL CSS */
