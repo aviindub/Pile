@@ -180,7 +180,7 @@ a:active {
 	z-index: 12;
 }
 
-#leftDescription {
+.leftDescription {
 	top: 10%;
 	left: 40px;
 	width: 70%;
