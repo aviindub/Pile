@@ -1,0 +1,79 @@
+<!DOCTYPE html>
+<html>
+
+
+	<head>
+		<meta charset="utf-8">
+		<title>PILE</title>
+ 				<link rel="stylesheet" href="../public/stylesheets/style.css">
+				<script type="text/javascript" src="../public/javascripts/byrei-dyndiv_1.0rc1.js"></script>
+				<script src="https://ajax.googleapis.com/ajax/libs/jquery/1.6.4/jquery.min.js"></script>
+				<script src="http://twitter.github.com/bootstrap/1.4.0/bootstrap-modal.js"></script>
+	
+		</head>
+		
+	<body>
+
+
+   	<div id="modal-createfrag" class="modal hide fade">
+	      <div class="modal-header">
+	        <a href="#" class="close">&times;</a>
+	        <h2 id="name_header">CREATE A FRAG</h2>
+	      </div>
+
+	      <div class="modal-body">
+	          <form id="frag" action="/frag/new">
+	  			<h3><label>Put your content here: </label></h3>
+	  			<textarea rows="10" cols="40" name="fragContent" type="html">
+	  			</textarea><br /><br />
+	  			<span class="btn info aligncenter"><input type="submit" value="Create Frag"/></span>
+	      </div>
+
+   	</div>
+
+
+	
+	<div id="container">
+
+		<div id="header">
+ 			<div id="logo"><a href="index.html"><img src="../public/images/pileLogo2.png"></a></div>
+ 
+		
+          <p>
+	      <a href="group.html">GROUP PILE.</a></p>
+			
+
+			<p>
+			<a href="user.html">YOUR PILE.</a></p>
+
+			<p data-controls-modal="modal-createfrag"
+				data-backdrop="true"
+				data-keyboard="true">
+			<a href="#">CREATE A FRAG.</a></p>
+		</div>
+
+
+	
+
+	<div id="Pilecode"> INSERT PERSONAL PILE CODE HERE</DIV>
+
+	<div class="leftSideBorder">
+
+		<div class="fragBox" id="leftDescription">
+			<p class="descriptHeader">This is your PILE!</p>
+			<p>Move, resize and reorder your frags.</p>
+			<p>Click "CREATE A FRAG" to add new content.</p>
+			<p>When you save your pile will be combined with the group's pile.</p>
+		</div>
+
+		<button id="saveButton" class="secondary info btn" onclick="savePositions()" type="button">Save Pile</button>
+
+
+	</div>
+
+		<div id="footer">
+		</div>
+	
+	</body>
+	
+</html>
