@@ -1,4 +1,7 @@
 module.exports.authenticate = function(login, password, callback) {
+	//get the set of all users to make sure username is valid
+	//if it exists, get the db entry for the username
+	//if password matches, create auth session
 	client.sismember('users', login, function(error, exists) {
 		if(error) {
 			console.log(error);
@@ -10,7 +13,6 @@ module.exports.authenticate = function(login, password, callback) {
 						console.log(error);
 						callback(error, null);
 					} else {
-					
 						//reformat userInfo from array to hash
 						var hashify = {};
 						for (var i = 0; i < userInfo.length ; i += 2) {
@@ -36,26 +38,3 @@ module.exports.authenticate = function(login, password, callback) {
 		}
 	});
 };
-
-
-/* OLD STUFF... delete
-var users = {
-	'avi' : {login: 'avi', password: 'password', role: 'admin'},
-	'david' : {login: 'david', password: 'password', role: 'admin'}
-	'rebekah' : {login: 'rebekah', password: 'password', role: 'admin'}
-	'chris' : {login: 'chris', password: 'password', role: 'admin'}
-};
-
-module.exports.authenticate = function(login, password, callback) {
-	var user = users[login];
-	if (!user) {
-		callback(null);
-		return;
-	}
-	if (user.password == password) {
-		callback(user);
-		return;
-	}
-	callback(null);
-};
-*/

@@ -21,7 +21,7 @@ app.configure(function(){
   app.use(express.methodOverride());
   app.use(app.router);
   app.use(express.cookieParser());
-  app.use(express.session({secret:'secret', store:new RedisStore}));
+  app.use(express.cookieParser({secret:'super duper secret', store:new RedisStore}));
 });
 
 app.configure('development', function(){
@@ -43,10 +43,15 @@ app.get('/login', function(req,res) {
 	res.render('login');
 });
 
-app.get('piles/:user', function(req, res) {
-	if(req.session.user === req.params.user) {
+app.get('/piles/:user', function(req, res) {
+	if(req.session) {
+		if (req.session.user === req.params.user) {
 		//show user's pile
 		routes.user;
+		}
+	} else if (req.params.user === 'avitest') {
+		console.log("using test route");
+		routes.userpile(req, res);
 	} else {
 		res.redirect('/login');
 	}	
@@ -55,6 +60,8 @@ app.get('piles/:user', function(req, res) {
 
 
 //Routes
+
+app.get('/groups/:pile', routes.pile);
 
 app.get('/', routes.index);
 

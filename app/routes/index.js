@@ -12,10 +12,8 @@ exports.index = function(req, res){
 
 exports.userpile = function(req, res) {
 	//route for individual user piles
-	console.log("piles.js user called");
 	var username;
 	if (req.params.user === 'avitest') {
-		console.log("using test route part 2");
 		username = 'avi';
 	} else {
 		username = req.session.user;
@@ -45,7 +43,7 @@ exports.pile = function(req, res) {
 
 exports.saveUserPile = function(req, res) {
 	//handle AJAX post with updated frag positions
-	var data = JSON.parse(req.param('saveData', null);
+	var data = JSON.parse(req.param('saveData', null));
 	frags.saveFragPositions(data, req.session.user);
 }
 

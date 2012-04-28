@@ -13,7 +13,7 @@ var client = redis.createClient();
 function getFrags (fragIDs, callback) {
 	//function to initialize the recursive function
 	var results = [];
-	recMGetRange (fragIDs, 0, results, callback);
+	recGetFrags (fragIDs, 0, results, callback);
 }
 
 function recGetFrags (fragIDs, nextIndex, results, callback) {
@@ -24,16 +24,12 @@ function recGetFrags (fragIDs, nextIndex, results, callback) {
 	} else {
 		client.hgetall(fragIDs[nextIndex], function(error, result){
 			if (error) {
-				console.log(error);
+				console.log("error getting frag from database");
 				callback(error, null);
 			} else {
-				var hashify = {};
-				hashify['fragID'] = fragIDs[nextIndex];
-				for (var i = 0 ; i < result.length ; i+=2) {
-					hashify[result[i]] = result[i+1];
-				}
-				results.push(hashify);
-				recGetFrags(array, nextIndex+1, results, callback);
+				result['fragID'] = fragIDs[nextIndex];
+				results.push(result);
+				recGetFrags(fragIDs, nextIndex+1, results, callback);
 			}
 		});
 	}
@@ -44,7 +40,12 @@ exports.getUserFrags = function(username, callback) {
 	//get list of fragIDs for given username
 	//get frags for those IDs
 	client.smembers(username + 'frags', function(error, fragIDs) {
-		getFrags(fragIDs, callback);
+		if (error) {
+			console.log("error getting user fragid list");
+			callback(error, null);
+		} else {
+			getFrags(fragIDs, callback);
+		}
 	});
 };
 
@@ -79,19 +80,19 @@ exports.createFrag = function(content, user, callback) {
 	client.incr('fragcount', function(error, nextFragID) {
 		if (error) {
 			console.log("error incrementing fragcount");
-			console.log(error);
+			//console.log(error);
 			callback(error);
 		} else {
 			sadd(user + 'frags', nextFragID, function(error, result){ 
 				if (error) {
 					console.log("error adding fragid to userfrags");
-					console.log(error);
+					//console.log(error);
 					callback(error);
 				} else {
 					hmset(nextFragID, 'content', content, 'user', user, 'posTop', '50', 'posLeft', '50', function(error, result) {
 						if (error) {
 							console.log("error creating frag");
-							console.log(error);
+							//console.log(error);
 							callback(error);
 						} else {
 							callback(null);

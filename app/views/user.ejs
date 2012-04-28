@@ -1,5 +1,5 @@
-<% for (var i = 0; i < frags.length, i++) { %>
-	<%var fragDivID = username +'Frag'+ frags[i].fragID%>
+<% for (var i = 0 ; i < frags.length ; i++) { %>
+	<% var fragDivID = username +'Frag'+ frags[i].fragID; %>
 	<div id="<%= fragDivID %>" class="dynDiv_moveDiv">
 		<div class="dynDiv_resizeDiv_tl"></div>
 		<div class="dynDiv_resizeDiv_tr"></div>
@@ -7,7 +7,7 @@
 		<div class="dynDiv_resizeDiv_br"></div>
 		<p><%= frags[i].content %></p>
 		<div class="footer">
-			<p><span class="footerPoster">Posted by <%= user %></span><span class="footerDate"> at <%= frags[i].timestamp %></span></p>
+			<p><span class="footerPoster">Posted by <%= username %></span><span class="footerDate"> at <%= frags[i].timestamp %></span></p>
 		</div>
 	</div>
 	<script>
@@ -31,8 +31,8 @@
 		
 		//get positions of all frags
 		var newPositions = [];
-		<% for (var i = 0; i < frags.length, i++) { %>
-			<% var fragDivID = username +'Frag'+ frags[i].fragID %>
+		<% for (var i = 0; i < frags.length ; i++) { %>
+			<% var fragDivID = username +'Frag'+ frags[i].fragID; %>
 			newPositions[<%= i %>] = new Object();
 			newPositions[<%= i %>].fragID = <%= frags[i].fragID %>;
 			newPositions[<%= i %>].top = $("#<%= fragDivID %>").css("top").replace(/[^-\d\.]/g, '');
