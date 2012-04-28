@@ -1,5 +1,5 @@
 <% for (var i = 0; i < frags.length, i++) { %>
-	<%var fragDivID = username +'Frag'+ i%>
+	<%var fragDivID = username +'Frag'+ frags[i].fragID%>
 	<div id="<%= fragDivID %>" class="dynDiv_moveDiv">
 		<div class="dynDiv_resizeDiv_tl"></div>
 		<div class="dynDiv_resizeDiv_tr"></div>
@@ -30,25 +30,26 @@
 	function savePositions() {
 		
 		//get positions of all frags
-		var positionsTop = [], positionsLeft = [];
+		var newPositions = [];
 		<% for (var i = 0; i < frags.length, i++) { %>
-			<%var fragDivID = username +'Frag'+ i%>
-			positionsTop[<%= i %>] = $("#<%= fragDivID %>").css("top").replace(/[^-\d\.]/g, '');
-			positionsLeft[<%= i %>] = $("#<%= fragDivID %>").css("left").replace(/[^-\d\.]/g, '');
+			<% var fragDivID = username +'Frag'+ frags[i].fragID %>
+			newPositions[<%= i %>] = new Object();
+			newPositions[<%= i %>].fragID = <%= frags[i].fragID %>;
+			newPositions[<%= i %>].top = $("#<%= fragDivID %>").css("top").replace(/[^-\d\.]/g, '');
+			newPositions[<%= i %>].left = $("#<%= fragDivID %>").css("left").replace(/[^-\d\.]/g, '');
 		<% } %>
 		
 		//turn positions in to a JSON object and stringify
-		var positions = new Object();
-		positions.user = <%= username %>;
-		positions.top = positionsTop;
-		positions.left = positionsLeft;
-		var positionsString = "data=" + JSON.stringify(positions);
+		var postData = new Object();
+		postData.user = <%= username %>;
+		postData.newPositions = newPositions;
+		var postString = "saveData=" + JSON.stringify(postData);
 		
 		//ajax POST to transmit positions
 		$.ajax({
 			url: "/piles/saveUserPile",
 			type: "POST",
-			data: positionsString
+			data: postString
 		}).done(function() { 
 			//called when POST is successfully completed
 			alert("Pile successfully saved");
