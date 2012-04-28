@@ -16,18 +16,23 @@ function getFrags (fragIDs, callback) {
 	recMGetRange (fragIDs, 0, results, callback);
 }
 
-function recGetFrags (array, nextIndex, results, callback) {
+function recGetFrags (fragIDs, nextIndex, results, callback) {
 	//recursive function to force db calls to be done sequentially
 	//this ensures that callback is only called once all results have returned
-	if (array.length === nextIndex) {
+	if (fragIDs.length === nextIndex) {
 		callback(null, results);
 	} else {
-		client.hgetall(array[nextIndex], function(error, result){
+		client.hgetall(fragIDs[nextIndex], function(error, result){
 			if (error) {
 				console.log(error);
 				callback(error, null);
 			} else {
-				results.push(result);
+				var hashify = {};
+				hashify['fragID'] = fragIDs[nextIndex];
+				for (var i = 0 ; i < result.length ; i+=2) {
+					hashify[result[i]] = result[i+1];
+				}
+				results.push(hashify);
 				recGetFrags(array, nextIndex+1, results, callback);
 			}
 		});
@@ -38,7 +43,7 @@ function recGetFrags (array, nextIndex, results, callback) {
 exports.getUserFrags = function(username, callback) {
 	//get list of fragIDs for given username
 	//get frags for those IDs
-	client.smembers(username, function(error, fragIDs) {
+	client.smembers(username + 'frags', function(error, fragIDs) {
 		getFrags(fragIDs, callback);
 	});
 };
@@ -48,10 +53,67 @@ exports.getCommunityFrags = function(callback) {
 	//get a list of fragIDs that is the union of all fragIDs for all usernames
 	//get frags for those IDs
 	client.smembers('users', function(error, users) {
-		client.sunion(users, function(error, fragIDs) {  //unsure if kosher to pass array as 1st arg here instead of listing out keys
-			getFrags(fragIDs, callback);
-		});
+		if (error) {
+			console.log(error);
+			callback(error, null);
+		} else {
+			for (var i = 0; i < users.length ; i++) {
+				users[i] += 'frags';
+			}
+			client.sunion(users, function(error, fragIDs) {
+				if (error) {
+					console.log(error);
+					callback(error, null);
+				} else {	
+					getFrags(fragIDs, callback);
+				}
+			});
+		}
 	});
 };
 
+exports.createFrag = function(content, user, callback) {
+	//increment fragcount returns new frag id
+	//add new frag id to users frag set
+	//add the frag to the database
+	client.incr('fragcount', function(error, nextFragID) {
+		if (error) {
+			console.log("error incrementing fragcount");
+			console.log(error);
+			callback(error);
+		} else {
+			sadd(user + 'frags', nextFragID, function(error, result){ 
+				if (error) {
+					console.log("error adding fragid to userfrags");
+					console.log(error);
+					callback(error);
+				} else {
+					hmset(nextFragID, 'content', content, 'user', user, 'posTop', '50', 'posLeft', '50', function(error, result) {
+						if (error) {
+							console.log("error creating frag");
+							console.log(error);
+							callback(error);
+						} else {
+							callback(null);
+						}
+					});
+				}
+			});
+		}		
+	});
+}
 
+exports.saveFragPositions = function(data, user) {
+	var newPositions = data.newPositions;
+	for (var i = 0 ; i < newPositions.length ; i++) {
+		var fragID = newPositions[i].fragID;
+		var top = newPositions[i].top;
+		var left = newPositions[i].left;
+		client.hmset(fragID, 'top', top, 'left', left, function(error){ 
+			if(error){
+				console.log("error saving frag positions in fragDatabaseModule");
+				console.log(error);
+			}
+		});
+	}
+};
