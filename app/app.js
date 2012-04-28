@@ -43,8 +43,8 @@ app.get('/login', function(req,res) {
 	res.render('login');
 });
 
-app.get('/:user', function(req, res) {
-	if(req.session.user.login === req.params.user) {
+app.get('piles/:user', function(req, res) {
+	if(req.session.user === req.params.user) {
 		//show user's pile
 		routes.user;
 	} else {
@@ -52,15 +52,15 @@ app.get('/:user', function(req, res) {
 	}	
 });
 
+
+
 //Routes
 
 app.get('/', routes.index);
 
-//app.get('/users/:user', routes.user);
-
-app.get("/piles/:pile", routes.pile);
-
 app.post("/piles/saveUserPile", routes.saveUserPile);
+
+app.post("/frags/createFrag" , routes.createFrag);
 
 http.createServer(app).listen(3000);
 
