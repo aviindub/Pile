@@ -1,0 +1,92 @@
+
+<script>
+
+	/*
+	* this is probably the wrong place for this script!!
+	* turns current positions of frags in to arrays of coordinates
+	* combines positions and username in to JSON object
+	* does AJAX post to send JSON object
+	* alerts when AJAX post is successful
+	*/
+
+	function savePositions() {
+
+		//get positions of all frags
+		var newPositions = [];
+		<% for (var i = 0; i < frags.length ; i++) { %>
+			<% var fragDivID = username +'Frag'+ frags[i].fragID; %>
+			newPositions[<%= i %>] = new Object();
+			newPositions[<%= i %>].fragID = <%= frags[i].fragID %>;
+			newPositions[<%= i %>].top = $("#<%= fragDivID %>").css("top").replace(/[^-\d\.]/g, '');
+			newPositions[<%= i %>].left = $("#<%= fragDivID %>").css("left").replace(/[^-\d\.]/g, '');
+		<% } %>
+
+		//turn positions in to a JSON object and stringify
+		var postData = new Object();
+		postData.user = <%= username %>;
+		postData.newPositions = newPositions;
+		var postString = "saveData=" + JSON.stringify(postData);
+
+		//ajax POST to transmit positions
+		$.ajax({
+			url: "/piles/saveUserPile",
+			type: "POST",
+			data: postString
+		}).done(function() { 
+			//called when POST is successfully completed
+			alert("Pile successfully saved");
+		});
+	}
+</script>
+
+
+         <p>
+	      <a href="group.html">GROUP PILE.</a></p>
+			
+
+			<p>
+			<a href="user.html">YOUR PILE.</a></p>
+
+			<p data-controls-modal="modal-createfrag"
+				data-backdrop="true"
+				data-keyboard="true">
+			<a href="#">CREATE A FRAG.</a></p>
+		</div>
+
+
+
+		<div class="leftSideBorder">
+
+			<div class="fragBox leftDescription">
+				<p class="descriptHeader">This is your PILE!</p>
+				<p>Move, resize and reorder your frags.</p>
+				<p>Click "CREATE A FRAG" to add new content.</p>
+				<p>When you save your pile will be combined with the group's pile.</p>
+			</div>
+
+			<button id="saveButton" class="secondary info btn" onclick="savePositions()" type="button">Save Pile</button>
+
+
+		</div>
+
+			<div id="pileContainerGroup" class="dynDiv_setLimit">
+
+			<% for (var i = 0 ; i < frags.length ; i++) { %>
+				<% var fragDivID = username +'Frag'+ frags[i].fragID; %>
+				<div id="<%= fragDivID %>" class="dynDiv_moveDiv">
+					<div class="dynDiv_resizeDiv_tl"></div>
+					<div class="dynDiv_resizeDiv_tr"></div>
+					<div class="dynDiv_resizeDiv_bl"></div>
+					<div class="dynDiv_resizeDiv_br"></div>
+					<p><%= frags[i].content %></p>
+					<div class="footer">
+						<p><span class="footerPoster">Posted by <%= username %></span><span class="footerDate"> at <%= frags[i].timestamp %></span></p>
+					</div>
+				</div>
+				<script>
+					$("#<%= fragDivID %>").css("left", <%= frags[i].posLeft +"px" %>);
+					$("#<%= fragDivID %>").css("top", <%= frags[i].posTop +"px" %>);
+				</script>
+			<% } %>
+				
+			</div>
