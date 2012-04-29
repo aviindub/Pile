@@ -10,7 +10,7 @@ exports.index = function(req, res){
 	res.render('index', { title: 'Express' });
 };
 
-exports.userpile = function(req, res) {
+exports.user = function(req, res) {
 	//route for individual user piles
 	var username;
 	if (req.params.user === 'avitest') {
