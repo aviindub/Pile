@@ -21,7 +21,7 @@ app.configure(function(){
   app.use(express.methodOverride());
   app.use(app.router);
   app.use(express.cookieParser());
-  app.use(express.session({secret:'superdupersecret', store:new RedisStore}));
+  app.use(express.cookieParser({secret:'superdupersecret', store:new RedisStore}));
 });
 
 app.configure('development', function(){
