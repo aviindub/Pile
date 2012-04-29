@@ -1,4 +1,28 @@
-<script>
+<!DOCTYPE html>
+<html>
+
+
+	<head>
+		<meta charset="utf-8">
+		<title>PILE</title>
+ 				<link rel="stylesheet" href="/stylesheets/style.css">
+ 			    <link rel="stylesheet" href="/stylesheets/animations.css">
+				<script type="text/javascript" src="/javascripts/byrei-dyndiv_1.0rc1.js"></script>
+				<script src="https://ajax.googleapis.com/ajax/libs/jquery/1.6.4/jquery.min.js"></script>
+				<script src="http://twitter.github.com/bootstrap/1.4.0/bootstrap-modal.js"></script>
+
+
+		</head>
+		
+	<body>
+
+		<div id="container">
+			<div id="header">
+ 				<div id="logo"><a href="index.html"><img src="/images/pileLogo2.png"></a></div>
+
+			
+
+ 			<script>
 
 	/*
 	* this is probably the wrong place for this script!!
@@ -47,7 +71,7 @@
 	      </div>
 
 	      <div class="modal-body">
-	          <form id="frag" action="/frag/new">
+	          <form id="frag" action="/frags/createFrag" method="post">
 	  			<h3><label>Put your content here: </label></h3>
 	  			<textarea rows="10" cols="40" name="fragContent" type="html">
 	  			</textarea><br /><br />
@@ -107,3 +131,14 @@
 			<% } %>
 				
 			</div>
+
+	 		<div id="footer">
+			</div>
+		</div>
+
+
+	
+	
+	</body>	
+</html>
+

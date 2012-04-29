@@ -1,7 +1,8 @@
 /*
  * GET home page.
  */
- 
+var redis = require('redis');
+var client = redis.createClient();
 var frags = require('./FragDatabaseModule');
 
 
@@ -54,3 +55,41 @@ exports.createFrag = function(req, res) {
 		res.redirect('/piles/' + req.session.user);
 	});
 }
+
+
+exports.authenticate = function(req, res, login, password, callback) {
+	//get the set of all users to make sure username is valid
+	//if it exists, get the db entry for the username
+	//if password matches, create auth session
+	client.sismember('users', login, function(error, exists) {
+		if(error) {
+			console.log(error);
+			callback(error, null);
+		} else {
+			if(exists === 1) {
+				client.hgetall(login, function(error, userInfo) {
+					if (error) {
+						console.log(error);
+						callback(error, null);
+					} else {
+						console.log(typeof(userInfo));
+						console.log(userInfo);
+						
+						if (password === userInfo.password) {
+							//if password match, create session
+							req.session.authenticated = true;
+							req.session.user = login;
+							callback(null, true);
+						} else {
+							//no password match
+							callback(null, false);
+						}
+					}
+				});
+			} else {
+				//user doesnt exist
+				callback(null, false);
+			}
+		}
+	});
+};
