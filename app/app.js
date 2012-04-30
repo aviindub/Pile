@@ -63,7 +63,7 @@ app.get('/piles/:user', function(req, res) {
 		//show user's pile
 		routes.user(req, res);
 		}
-	} else if (req.params.user === 'avitest') {
+	} else if (req.params.user === 'avitest') { //BACKDOOR! UNDO!
 		console.log("using test route");
 		routes.user(req, res);
 	} else {

@@ -46,10 +46,9 @@
 
 		//turn positions in to a JSON object and stringify
 		var postData = new Object();
-		postData.user = <%= username %>;
+		postData.user = "<%= username %>";
 		postData.newPositions = newPositions;
 		var postString = "saveData=" + JSON.stringify(postData);
-
 		//ajax POST to transmit positions
 		$.ajax({
 			url: "/piles/saveUserPile",
@@ -73,7 +72,7 @@
 	      <div class="modal-body">
 	          <form id="frag" action="/frags/createFrag" method="post">
 	  			<h3><label>Put your content here: </label></h3>
-	  			<textarea rows="10" cols="40" name="fragContent" type="html">
+	  			<textarea rows="10" cols="40" name="fragContent" type="text">
 	  			</textarea><br /><br />
 	  			<span class="btn info aligncenter"><input type="submit" value="Create Frag"/></span>
 	      </div>
@@ -125,8 +124,9 @@
 					</div>
 				</div>
 				<script>
-					$("#<%= fragDivID %>").css("left", <%= frags[i].posLeft +"px" %>);
-					$("#<%= fragDivID %>").css("top", <%= frags[i].posTop +"px" %>);
+					//alert("<%= frags[i].posleft %>");
+					$("#<%= fragDivID %>").css("left", "<%= frags[i].posleft +"px" %>");
+					$("#<%= fragDivID %>").css("top", "<%= frags[i].postop +"px" %>");
 				</script>
 			<% } %>
 				

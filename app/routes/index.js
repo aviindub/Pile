@@ -14,7 +14,7 @@ exports.index = function(req, res){
 exports.user = function(req, res) {
 	//route for individual user piles
 	var username;
-	if (req.params.user === 'avitest') {
+	if (req.params.user === 'avitest') { //BACKDOOR! UNDO!
 		username = 'avi';
 	} else {
 		username = req.session.user;
@@ -45,14 +45,17 @@ exports.pile = function(req, res) {
 exports.saveUserPile = function(req, res) {
 	//handle AJAX post with updated frag positions
 	var data = JSON.parse(req.param('saveData', null));
-	frags.saveFragPositions(data, req.session.user);
+	//frags.saveFragPositions(data, req.session.user);  UNDO
+	frags.saveFragPositions(data, 'avi');
 }
 
 exports.createFrag = function(req, res) {
 	//handle POST of new frag data
-	frags.createFrag(req.param('content', null), req.session.user, function(error) { 
+	//frags.createFrag(req.param('content', null), req.session.user, function(error) {
+	frags.createFrag(req.param('fragContent', null), 'avi', function(error) { //UNDO
 		//add error handling
-		res.redirect('/piles/' + req.session.user);
+		//res.redirect('/piles/' + req.session.user); UNDO
+		res.redirect('/piles/avitest');
 	});
 }
 

@@ -83,13 +83,13 @@ exports.createFrag = function(content, user, callback) {
 			//console.log(error);
 			callback(error);
 		} else {
-			sadd(user + 'frags', nextFragID, function(error, result){ 
+			client.sadd(user + 'frags', nextFragID, function(error, result){ 
 				if (error) {
 					console.log("error adding fragid to userfrags");
 					//console.log(error);
 					callback(error);
 				} else {
-					hmset(nextFragID, 'content', content, 'user', user, 'posTop', '50', 'posLeft', '50', function(error, result) {
+					client.hmset(nextFragID, 'content', content, 'user', user, 'posTop', '50', 'posLeft', '50', function(error, result) {
 						if (error) {
 							console.log("error creating frag");
 							//console.log(error);
@@ -110,7 +110,7 @@ exports.saveFragPositions = function(data, user) {
 		var fragID = newPositions[i].fragID;
 		var top = newPositions[i].top;
 		var left = newPositions[i].left;
-		client.hmset(fragID, 'top', top, 'left', left, function(error){ 
+		client.hmset(fragID, 'postop', top, 'posleft', left, function(error){ 
 			if(error){
 				console.log("error saving frag positions in fragDatabaseModule");
 				console.log(error);
