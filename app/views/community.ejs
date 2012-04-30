@@ -1,3 +1,31 @@
+<!DOCTYPE html>
+<html>
+
+
+	<head>
+		<meta charset="utf-8">
+		<title>PILE</title>
+ 				<link rel="stylesheet" href="/stylesheets/style.css">
+ 			    <link rel="stylesheet" href="/stylesheets/animations.css">
+				<script type="text/javascript" src="/javascripts/byrei-dyndiv_1.0rc1.js"></script>
+				<script src="https://ajax.googleapis.com/ajax/libs/jquery/1.6.4/jquery.min.js"></script>
+				<script src="http://twitter.github.com/bootstrap/1.4.0/bootstrap-modal.js"></script>
+
+
+
+		</head>
+		
+	<body>
+
+
+	
+	<div id="container">
+
+		<div id="header">
+			
+ 			<div id="logo"><a href="index.html"><img src="/images/pileLogo2.png"></a></div>
+ 
+		
 
 
    	<div id="modal-createfrag" class="modal hide fade">
@@ -17,67 +45,45 @@
    	</div>
 
 
-	
-	<div id="mainContainer">
-
-		<div id="header">
- 			<div id="logo"><img src="../public/images/pileLogo2.png"></div>
- 
-		
           <p>
-	      <a href="#">GROUP PILE.</a></p>
+	      <a href="#" class="submenu">GROUP PILE.</a></p>
 			
 
 			<p>
-			<a href="user">YOUR PILE.</a></p>
+			<a href="user.html" class="submenu">YOUR PILE.</a></p>
 
 			<p data-controls-modal="modal-createfrag"
 				data-backdrop="true"
 				data-keyboard="true">
-			<a href="#">CREATE A FRAG.</a></p>
+			<a href="#" class="submenu">CREATE A FRAG.</a></p>
+		</div>
 		</div>
 
-		<div id="pileContainerGroup">
 
-				<div id="testdiv_1" class="dynDiv_moveDiv">
-					<p>This is the first test div. It is an image post with this text description.</p>
-					<img src="images/jesuscafe.jpg">
-					<div class="footer">
-						<p><span class="footerPoster">Posted by PosterUno</span><span class="footerDate"> at 08:25 a.m.</span></p>
-					</div>	
-				</div>
+		<div class="leftSideBorder">
+			<div class="fragBox leftDescription">
+				<p class="descriptHeader">This is the community PILE.</p>
+				<p>The most recent frags will appear on top by default, but you can click on a lower-level frag to bring it to the front.</p>
+				<p>After you CREATE A FRAG from this page, you will be redirected to your user page.</p>
+			</div>
+		</div>
+
+		<div id="pileGroupPile" class="dynDiv_setLimit">
+			<!--THE GROUP PILE AGGREGATED FROM USER PILES CODE NEEDS TO GO HERE -->
+		</div>	
 
 
-				<div id="testdiv_2" class="dynDiv_moveDiv">
-					<p>This is the second test div. It is an animated image post with this text description.</p>
-					<div class="footer">
-						<p><span class="footerPoster">Posted by PosterDos</span><span class="footerDate"> at 06:45 p.m.</span></p>
-					</div>	
-				</div>
-				
-				<div id="testdiv_3" class="dynDiv_moveDiv">
-					<p>This is the third test div. It is a link post with this text description.</p>
-					<a href="http://bit.ly/jF9dk7"><span class="pileLink">http://bit.ly/jF9dk7</span></a>
-					<div class="footer">
-						<p><span class="footerPoster">Posted by PosterTres</span><span class="footerDate"> at 12:19 p.m.</span></p>
-					</div>	
-				</div>
-				
+		<div id="footer">
 		</div>
 	</div>
 	
 
-				<script type="text/javascript" src="http://ajax.googleapis.com/ajax/libs/jquery/1.7.1/jquery.min.js"></script>
-				<script type="text/javascript" src="../public/javascripts/jquery-ui-1.8.19.custom.min.js"></script>
-				<script type="text/javascript" src="..public/javascripts/jquery.mousewheel.min.js"></script>
-				<script type="text/javascript" src="../public/javascripts/horizscroll.js"></script>
-				<script type="text/javascript">
-					$(document).ready(function() {
-						$("div#pileContainerGroup").smoothDivScroll({ 
-							manualContinuousScrolling: true,
-							visibleHotSpotBackgrounds: "always",
-							autoScrollingMode: "onstart",
-							easingAfterHotSpotScrolling: true
-						});
-					});
-				</script>
+
+	
+	</body>
+	
+</html>
+
+
+
+
