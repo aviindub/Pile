@@ -67,8 +67,18 @@
       }
     }
 
+#saveButton {
+	position: absolute;
+	top: 400px;
+	left: 115px;
+     -moz-animation-duration: 3s;
+      -webkit-animation-duration: 3s;
+      -moz-animation-name: Glow;
+      -webkit-animation-name: Glow;
+      -moz-animation-iteration-count: infinte;
+      -webkit-animation-iteration-count: infinite;
 
-
+}
 
 #signupbtn {
 	position: absolute;
@@ -88,45 +98,36 @@
     @-moz-keyframes Glow {
        from {
 	position: absolute;
-	top: 470px;
-	left: 115px;
+
 	box-shadow: 0px 0px 0px 
 	#FFB900;
       }
       50% {
 	position: absolute;
-	top: 470px;
-	left: 115px;
+
 	box-shadow: 0px 0px 20px 
 	#FFB900;
       }
 	to {
 	position: absolute;
-	top: 470px;
-	left: 115px;
+
 	box-shadow: 0px 0px 0px 
 	#FFB900;
   	}
 }
     @-webkit-keyframes Glow {
        from {
-	position: absolute;
-	top: 470px;
-	left: 115px;
+
 	box-shadow: 0px 0px 0px 
 	#FFB900;
       }
       50% {
-	position: absolute;
-	top: 470px;
-	left: 115px;
+
 	box-shadow: 0px 0px 20px 
 	#FFB900;
       }
 	to {
-	position: absolute;
-	top: 470px;
-	left: 115px;
+
 	box-shadow: 0px 0px 0px 
 	#FFB900;
     }
@@ -297,5 +298,88 @@
 	z-index: 10;     
 		}
     }
+
+
+
+.leftSideBorder {
+	  -moz-animation-duration: 2s;
+      -webkit-animation-duration: 2s;
+      -moz-animation-name: slide;
+      -webkit-animation-name: slide;
+      -moz-animation-iteration-count: 1;
+      -webkit-animation-iteration-count: 1;
+}
+
+
+.dynDiv_moveDiv {
+      -moz-animation-duration: 2s;
+      -webkit-animation-duration: 2s;
+      -moz-animation-name: dropit;
+      -webkit-animation-name: dropit;
+      -moz-animation-iteration-count: 1;
+      -webkit-animation-iteration-count: 1;
+}
+
+
+   @-moz-keyframes dropit{
+		from {
+			opacity: .0;
+			-webkit-transform: scale(0,0);
+      }
+      to {
+			opacity: 1.0;
+			-webkit-transform: scale(1,1);
+		}
+}
+@-webkit-keyframes dropit {
+		from {
+			opacity: .0;
+			-webkit-transform: scale(0,0);
+      }
+      to {
+			opacity: 1.0;
+			-webkit-transform: scale(1,1);
+		}
+}
+
+
+
+   @-moz-keyframes slide {
+		from {
+	position: absolute;
+	left:-100%;
+	width: 23%;
+	top: 18%;
+	border-right: 2px solid #ffcd05;
+	height: 75%;
+      }
+      to {
+	position: absolute;
+	left:0%;
+	width: 23%;
+	top: 18%;
+	border-right: 2px solid #ffcd05;
+	height: 75%;
+		}
+}
+@-webkit-keyframes slide {
+		from {
+	position: absolute;
+	left:-100%;
+	width: 23%;
+	top: 18%;
+	border-right: 2px solid #ffcd05;
+	height: 75%;
+      }
+      to {
+	position: absolute;
+	left:0%;
+	width: 23%;
+	top: 18%;
+	border-right: 2px solid #ffcd05;
+	height: 75%;
+		}
+}
+
 
 
