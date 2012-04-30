@@ -1,0 +1,385 @@
+#header{
+	position: absolute;
+	border: none;
+	width: 100%;
+	height: 15%;
+	background-color: #333333;
+	z-index: 2000;
+	border-bottom: solid 5px #111; 
+	box-shadow: 0px 4px 20px #222;
+
+      -moz-animation-duration: 1s;
+      -webkit-animation-duration: 1s;
+      -moz-animation-name: fadedown;
+      -webkit-animation-name: fadedown;
+      -moz-animation-iteration-count: 1;
+      -webkit-animation-iteration-count: 1;
+    }
+
+    @-moz-keyframes fadedown {
+      from {
+		position: absolute;
+		border: none;
+		top:-100%;
+		width: 100%;
+		height: 15%;
+		background-color: #333333;
+		z-index: 2000;
+		border-bottom: solid 5px #111; 
+		box-shadow: 0px 4px 20px #222;
+		opacity:0.0;
+      }
+      to {
+		position: absolute;
+		border: none;
+		width: 100%;
+		height: 15%;
+		background-color: #333333;
+		z-index: 2000;
+		border-bottom: solid 5px #111; 
+		box-shadow: 0px 4px 20px #222;
+		opacity:1.0;
+      }
+    }
+    @-webkit-keyframes fadedown {
+      from {
+		position: absolute;
+		border: none;
+		width: 100%;
+		height: 15%;
+		top:-100%;
+		background-color: #333333;
+		z-index: 2000;
+		border-bottom: solid 5px #111; 
+		box-shadow: 0px 4px 20px #222;
+		opacity:0.0;
+      }
+      to {
+		position: absolute;
+		border: none;
+		width: 100%;
+		height: 15%;
+		background-color: #333333;
+		z-index: 2000;
+		border-bottom: solid 5px #111; 
+		box-shadow: 0px 4px 20px #222;
+		opacity:1.0;
+      }
+    }
+
+#saveButton {
+	position: absolute;
+	top: 400px;
+	left: 115px;
+     -moz-animation-duration: 3s;
+      -webkit-animation-duration: 3s;
+      -moz-animation-name: Glow;
+      -webkit-animation-name: Glow;
+      -moz-animation-iteration-count: infinte;
+      -webkit-animation-iteration-count: infinite;
+
+}
+
+#signupbtn {
+	position: absolute;
+	top: 470px;
+	left: 115px;
+	box-shadow: 0px 0px 20px 
+	#FFB900;
+
+     -moz-animation-duration: 3s;
+      -webkit-animation-duration: 3s;
+      -moz-animation-name: Glow;
+      -webkit-animation-name: Glow;
+      -moz-animation-iteration-count: infinte;
+      -webkit-animation-iteration-count: infinite;
+    }
+
+    @-moz-keyframes Glow {
+       from {
+	position: absolute;
+
+	box-shadow: 0px 0px 0px 
+	#FFB900;
+      }
+      50% {
+	position: absolute;
+
+	box-shadow: 0px 0px 20px 
+	#FFB900;
+      }
+	to {
+	position: absolute;
+
+	box-shadow: 0px 0px 0px 
+	#FFB900;
+  	}
+}
+    @-webkit-keyframes Glow {
+       from {
+
+	box-shadow: 0px 0px 0px 
+	#FFB900;
+      }
+      50% {
+
+	box-shadow: 0px 0px 20px 
+	#FFB900;
+      }
+	to {
+
+	box-shadow: 0px 0px 0px 
+	#FFB900;
+    }
+}
+
+#welcomeTextBox{
+	top: 70px;
+	left: 65px;
+	transform: rotate(4deg);
+	-ms-transform: rotate(4deg); /* IE 9 */
+	-webkit-transform: rotate(4deg); /* Safari and Chrome */
+	-o-transform: rotate(4deg); /* Opera */
+	-moz-transform: rotate(4deg); /* Firefox */
+	background-color: #ccc;
+	z-index: 10;
+      -moz-animation-duration: 3s;
+      -webkit-animation-duration: 3s;
+      -moz-animation-name: flyin;
+      -webkit-animation-name: flyin;
+      -moz-animation-iteration-count: 1;
+      -webkit-animation-iteration-count: 1;
+}
+#signupBox{
+	position: relative;
+	top: 320px;
+	left: 50px;
+	width: 270px;
+	transform: rotate(-5deg);
+	-ms-transform: rotate(-5deg); /* IE 9 */
+	-webkit-transform: rotate(-5deg); /* Safari and Chrome */
+	-o-transform: rotate(-5deg); /* Opera */
+	-moz-transform: rotate(-5deg); /* Firefox */
+	background-color: #222;
+	color: #eee;
+	opacity: .9;
+	font-size: 17px;
+	z-index: 12;
+      -moz-animation-duration: 3s;
+      -webkit-animation-duration: 3s;
+      -moz-animation-name: flyin1;
+      -webkit-animation-name: flyin1;
+      -moz-animation-iteration-count: 1;
+      -webkit-animation-iteration-count: 1;
+}
+
+
+    @-moz-keyframes flyin1 {
+      from {
+	position: relative;
+	top: -320px;
+	left: 50px;
+	width: 270px;
+	transform: rotate(-5deg);
+	-ms-transform: rotate(-5deg); /* IE 9 */
+	-webkit-transform: rotate(-5deg); /* Safari and Chrome */
+	-o-transform: rotate(-5deg); /* Opera */
+	-moz-transform: rotate(-5deg); /* Firefox */
+	background-color: #222;
+	color: #eee;
+	opacity: .0;
+	font-size: 17px;
+	z-index: 12;
+
+      }
+      to {
+	position: relative;
+	top: 320px;
+	left: 50px;
+	width: 270px;
+	transform: rotate(-5deg);
+	-ms-transform: rotate(-5deg); /* IE 9 */
+	-webkit-transform: rotate(-5deg); /* Safari and Chrome */
+	-o-transform: rotate(-5deg); /* Opera */
+	-moz-transform: rotate(-5deg); /* Firefox */
+	background-color: #222;
+	color: #eee;
+	opacity: .9;
+	font-size: 17px;
+	z-index: 12;
+      }
+    }
+@-webkit-keyframes flyin1 {
+      from {
+	position: relative;
+	top: -320px;
+	left: 50px;
+	width: 270px;
+	transform: rotate(-5deg);
+	-ms-transform: rotate(-5deg); /* IE 9 */
+	-webkit-transform: rotate(-5deg); /* Safari and Chrome */
+	-o-transform: rotate(-5deg); /* Opera */
+	-moz-transform: rotate(-5deg); /* Firefox */
+	background-color: #222;
+	color: #eee;
+	opacity: .0;
+	font-size: 17px;
+	z-index: 12;
+
+      }
+      to {
+	position: relative;
+	top: 320px;
+	left: 50px;
+	width: 270px;
+	transform: rotate(-5deg);
+	-ms-transform: rotate(-5deg); /* IE 9 */
+	-webkit-transform: rotate(-5deg); /* Safari and Chrome */
+	-o-transform: rotate(-5deg); /* Opera */
+	-moz-transform: rotate(-5deg); /* Firefox */
+	background-color: #222;
+	color: #eee;
+	opacity: .9;
+	font-size: 17px;
+	z-index: 12;
+      }
+    }
+
+
+
+
+
+
+    @-moz-keyframes flyin {
+      from {
+	top: -370px;
+	left: 65px;
+	transform: rotate(4deg);
+	-ms-transform: rotate(4deg); /* IE 9 */
+	-webkit-transform: rotate(4deg); /* Safari and Chrome */
+	-o-transform: rotate(4deg); /* Opera */
+	-moz-transform: rotate(4deg); /* Firefox */
+	background-color: #ccc;
+	z-index: 10;
+      }
+      to {
+	top: 70px;
+	left: 65px;
+	transform: rotate(4deg);
+	-ms-transform: rotate(4deg); /* IE 9 */
+	-webkit-transform: rotate(4deg); /* Safari and Chrome */
+	-o-transform: rotate(4deg); /* Opera */
+	-moz-transform: rotate(4deg); /* Firefox */
+	background-color: #ccc;
+	z-index: 10;     
+		}
+    }
+@-webkit-keyframes flyin {
+		from {
+	top: -370px;
+	left: 65px;
+	transform: rotate(4deg);
+	-ms-transform: rotate(4deg); /* IE 9 */
+	-webkit-transform: rotate(4deg); /* Safari and Chrome */
+	-o-transform: rotate(4deg); /* Opera */
+	-moz-transform: rotate(4deg); /* Firefox */
+	background-color: #ccc;
+	z-index: 10;
+      }
+      to {
+	top: 70px;
+	left: 65px;
+	transform: rotate(4deg);
+	-ms-transform: rotate(4deg); /* IE 9 */
+	-webkit-transform: rotate(4deg); /* Safari and Chrome */
+	-o-transform: rotate(4deg); /* Opera */
+	-moz-transform: rotate(4deg); /* Firefox */
+	background-color: #ccc;
+	z-index: 10;     
+		}
+    }
+
+
+
+.leftSideBorder {
+	  -moz-animation-duration: 2s;
+      -webkit-animation-duration: 2s;
+      -moz-animation-name: slide;
+      -webkit-animation-name: slide;
+      -moz-animation-iteration-count: 1;
+      -webkit-animation-iteration-count: 1;
+}
+
+
+.dynDiv_moveDiv {
+      -moz-animation-duration: 2s;
+      -webkit-animation-duration: 2s;
+      -moz-animation-name: dropit;
+      -webkit-animation-name: dropit;
+      -moz-animation-iteration-count: 1;
+      -webkit-animation-iteration-count: 1;
+}
+
+
+   @-moz-keyframes dropit{
+		from {
+			opacity: .0;
+			-webkit-transform: scale(0,0);
+      }
+      to {
+			opacity: 1.0;
+			-webkit-transform: scale(1,1);
+		}
+}
+@-webkit-keyframes dropit {
+		from {
+			opacity: .0;
+			-webkit-transform: scale(0,0);
+      }
+      to {
+			opacity: 1.0;
+			-webkit-transform: scale(1,1);
+		}
+}
+
+
+
+   @-moz-keyframes slide {
+		from {
+	position: absolute;
+	left:-100%;
+	width: 23%;
+	top: 18%;
+	border-right: 2px solid #ffcd05;
+	height: 75%;
+      }
+      to {
+	position: absolute;
+	left:0%;
+	width: 23%;
+	top: 18%;
+	border-right: 2px solid #ffcd05;
+	height: 75%;
+		}
+}
+@-webkit-keyframes slide {
+		from {
+	position: absolute;
+	left:-100%;
+	width: 23%;
+	top: 18%;
+	border-right: 2px solid #ffcd05;
+	height: 75%;
+      }
+      to {
+	position: absolute;
+	left:0%;
+	width: 23%;
+	top: 18%;
+	border-right: 2px solid #ffcd05;
+	height: 75%;
+		}
+}
+
+
+
